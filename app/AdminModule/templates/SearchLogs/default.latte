@@ -1,0 +1,49 @@
+{block #header}Záznamy hledání{/block}
+
+{block #title}{include #parent} {include #header}{/block}
+
+{block #content}
+
+	{if count($searchLogs) > 0}
+
+		{control vp}
+
+		<table class="items">
+			<tr>
+				<th>Řetězec</th>
+				<th>Od</th>
+				<th>Do</th>
+				<th>Čas hledání</th>
+				<th>IP adresa</th>
+			</tr>
+			{foreach $searchLogs as $searchLog}
+				<tr>
+					<td class="item_row">
+						<span>{$searchLog->query}</span>
+					</td>
+					<td class="item_row">
+						<span>{if $searchLog->date_from}{$searchLog->date_from|date:'j.n.Y'}{else}-{/if}</span>
+					</td>
+					<td class="item_row">
+						<span>{if $searchLog->date_till}{$searchLog->date_till|date:'j.n.Y'}{else}-{/if}</span>
+					</td>
+					<td class="item_row">
+						<span>{$searchLog->added|date:'j.n.Y H:i:s'}</span>
+					</td>
+					<td class="item_row">
+						<span>{$searchLog->ip}</span>
+					</td>
+				</tr>
+
+			{/foreach}
+		</table>
+
+		{control vp}
+
+	{else}
+
+        <p>Zatím nebyl vložen žádný záznam.</p>
+
+	{/if}
+
+{/block}

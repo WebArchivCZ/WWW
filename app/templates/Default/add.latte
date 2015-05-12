@@ -1,0 +1,106 @@
+{block title}{if $lang == 'cs'}Nechte se Webarchivovat!{else}Let’s get Webarchived!{/if} | {include #parent}{/block}
+
+{block menuItemActive4} class="active"{/block}
+
+{block content}
+
+	{include ../commonParts/add.latte}
+
+	<section id="add-web">
+		<div class="container">
+
+			<h2>Přidejte web</h2>
+
+			{form addWebForm}
+
+				{foreach $flashes as $flash}
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="flash {$flash->type}">{$flash->message}</div>
+						</div>
+					</div>
+				{/foreach}
+
+				{control $form errors}
+
+				<div class="row">
+					<div class="col-sm-2 col-md-3 no-right-padding">
+						<span class="form-label">{label url /}</span>
+					</div>
+					<div class="col-sm-8 col-md-6">
+						{input url class => 'text'}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-offset-2 col-md-offset-3">
+						<div class="row">
+							<div class="col-md-6 checkbox-wrapper">
+								<span class="false-checkbox"></span>
+								{input representative}
+								<span class="false-label">Mohu jednat za uvedené zdroje</span>
+							</div>
+							<div class="col-md-6 checkbox-wrapper no-left-padding">
+								<span class="false-checkbox"></span>
+								{input cc}
+								<span class="false-label">Zdroj s licencí Creative Commons</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-2 col-md-3 no-right-padding">
+						<span class="form-label">{label name /}</span>
+					</div>
+					<div class="col-sm-8 col-md-6">
+						{input name class => 'text'}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2 col-md-3 no-right-padding">
+						<span class="form-label">{label email /}</span>
+					</div>
+					<div class="col-sm-8 col-md-6">
+						{input email class => 'text'}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2 col-md-3 no-right-padding">
+						<span class="form-label">{label note /}</span>
+					</div>
+					<div class="col-sm-8 col-md-6">
+						{input note class => 'textarea'}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+						{input submit class => 'submit'}
+					</div>
+				</div>
+			{/form}
+
+			<br><br>
+
+			<p>Vítáme Vaše návrhy nových webových stránek pro archivaci. Zařazení webových stránek do režimu výběrového sklízení má však svá <a href="{plink sourceSelection}">kritéria</a>. Předně dokument musí splňovat jednu z následujících podmínek:</p>
+
+			<ul class="normal">
+				<li>byl vydán na území České republiky</li>
+				<li>jeho jazykem je čeština</li>
+				<li>autor je české národnosti</li>
+				<li>obsah se týká České republiky nebo českého národa</li>
+			</ul>
+
+			<p>Jsou vybírány především materiály významné kulturní či vědecké hodnoty, které vznikají jako původní digitální díla (tzn. nemají souběžnou tištěnou podobu).</p>
+
+			<h2>Preferované webové dokumenty:</h2>
+			<p>online časopisy, monografie, konferenční materiály, výzkumné zprávy, akademické práce, vládní dokumenty, blogy s kulturním či vědeckým zaměřením</p>
+
+			<h2>Do výběrových sklizní nespadají:</h2>
+			<p>počítačové hry (aplikace), internetové obchody, firemní weby, nabídkové katalogy, intranety, osobní weblogy (bez vědecké či kulturní hodnoty), portály shromažďující obsah z jiných zdrojů, rozhlasové a televizní vysílání, atd. (tyto zdroje ale mohou být archivovány v rámci celoplošných sklizní)</p>
+			<p>Vyhrazujeme si právo Váš návrh odmítnout. Smlouvu, prosím, nepodepisujte s předstihem, budeme Vás informovat. Pokud používáte licenci <a href="{plink creativeCommons}">Creative Commons</a>, smlouvu uzavírat nemusíme, obdržíte od nás jen informativní zprávu o výsledku hodnocení.      </p>
+
+		</div>
+	</section>
+
+{/block}
+

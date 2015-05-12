@@ -1,0 +1,57 @@
+{block #header}Výběr z katalogu{/block}
+
+{block #title}{include #parent} {include #header}{/block}
+
+{block #content}
+
+    <a href="{link add}" class="add">Přidat nový zdroj</a><br />
+
+	{if count($selectedResources) > 0}
+
+		<br>
+		<p>Na domovské stránce se zobrazují pouze první dva publikované zdroje</p>
+		<br>
+
+		<table class="items">
+			<tr>
+				<th>Pulikováno</th>
+				<th>Název</th>
+				<th>Posun</th>
+				<th>Akce</th>
+			</tr>
+
+			{foreach $selectedResources as $selectedResource}
+
+				<tr>
+					<td class="item_row align-center">
+	                    <a href="{link publish!, 'id' => $selectedResource->id}" class="{if !$selectedResource->active}un{/if}published"></a>
+					</td>
+					<td class="item_row">
+						<a href="{link edit, 'id' => $selectedResource->id}">{$selectedResource->title|truncate:60}</a>
+					</td>
+					<td class="item_row">
+						<span>
+							<a href="{link shift!, 'id' => $selectedResource->id, 'direction'=>'bigger'}" class="up"></a>
+							<a href="{link shift!, 'id' => $selectedResource->id, 'direction'=>'smaller'}" class="down"></a>
+						</span>
+					</td>
+					<td class="item_row">
+						<span>
+							<a href="{link edit, 'id' => $selectedResource->id}" class="edit">editovat</a> |
+							<a href="{link delete!, $selectedResource->id}" class="delete">smazat</a>
+						</span>
+					</td>
+				</tr>
+
+			{/foreach}
+
+		</table>
+
+	{else}
+
+        <p>Zatím nebyl vložen žádný záznam.</p>
+
+	{/if}
+
+
+{/block}

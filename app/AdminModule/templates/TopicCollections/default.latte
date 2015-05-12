@@ -1,0 +1,54 @@
+{block #header}Tématické sbírky{/block}
+
+{block #title}{include #parent} {include #header}{/block}
+
+{block #content}
+
+    <a href="{link add}" class="add">Přidat novou sbírku</a><br /><br />
+
+	{if count($topicCollections) > 0}
+
+
+		<table class="items">
+			<tr>
+				<th>Pulikováno</th>
+				<th>Název</th>
+				<th>Posun</th>
+				<th>Akce</th>
+			</tr>
+
+			{foreach $topicCollections as $topicCollection}
+
+				<tr>
+					<td class="item_row align-center">
+	                    <a href="{link publish!, 'id' => $topicCollection->id}" class="{if !$topicCollection->active}un{/if}published"></a>
+					</td>
+					<td class="item_row">
+						<a href="{link edit, 'id' => $topicCollection->id}">{$topicCollection->title_cs|truncate:60}</a>
+					</td>
+					<td class="item_row">
+						<span>
+							<a href="{link shift!, 'id' => $topicCollection->id, 'direction'=>'bigger'}" class="up"></a>
+							<a href="{link shift!, 'id' => $topicCollection->id, 'direction'=>'smaller'}" class="down"></a>
+						</span>
+					</td>
+					<td class="item_row">
+						<span>
+							<a href="{link edit, 'id' => $topicCollection->id}" class="edit">editovat</a> |
+							<a href="{link delete!, $topicCollection->id}" class="delete">smazat</a>
+						</span>
+					</td>
+				</tr>
+
+			{/foreach}
+
+		</table>
+
+	{else}
+
+        <p>Zatím nebyla vložena žádná sklizeň.</p>
+
+	{/if}
+
+
+{/block}

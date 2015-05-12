@@ -1,0 +1,57 @@
+{block #header}Novinky titulní strany{/block}
+
+{block #title}{include #parent} {include #header}{/block}
+
+{block #content}
+
+    <a href="{link add}" class="add">Přidat novinku</a><br />
+
+	{if count($homepageNews) > 0}
+
+		<br>
+		<p>Na domovské stránce se zobrazuje pouze první publikovaná novinka</p>
+		<br>
+
+		<table class="items">
+			<tr>
+				<th>Pulikováno</th>
+				<th>Název</th>
+				<th>Posun</th>
+				<th>Akce</th>
+			</tr>
+
+			{foreach $homepageNews as $homepageNew}
+
+				<tr>
+					<td class="item_row align-center">
+	                    <a href="{link publish!, 'id' => $homepageNew->id}" class="{if !$homepageNew->active}un{/if}published"></a>
+					</td>
+					<td class="item_row">
+						<a href="{link edit, 'id' => $homepageNew->id}">{$homepageNew->title|truncate:60}</a>
+					</td>
+					<td class="item_row">
+						<span>
+							<a href="{link shift!, 'id' => $homepageNew->id, 'direction'=>'bigger'}" class="up"></a>
+							<a href="{link shift!, 'id' => $homepageNew->id, 'direction'=>'smaller'}" class="down"></a>
+						</span>
+					</td>
+					<td class="item_row">
+						<span>
+							<a href="{link edit, 'id' => $homepageNew->id}" class="edit">editovat</a> |
+							<a href="{link delete!, $homepageNew->id}" class="delete">smazat</a>
+						</span>
+					</td>
+				</tr>
+
+			{/foreach}
+
+		</table>
+
+	{else}
+
+        <p>Zatím nebyl vložen žádný záznam.</p>
+
+	{/if}
+
+
+{/block}

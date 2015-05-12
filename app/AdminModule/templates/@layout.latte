@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="{$robots}" n:ifset="$robots" />
+    <title>{block #title}ADMIN | {? echo PROJECT_NAME} | {/block}</title>
+
+    <link rel="stylesheet" href="{$basePath}/css/admin.css" media="screen,projection,tv" type="text/css" />
+    <link rel="stylesheet" href="{$basePath}/css/forms/datepicker.css" media="screen,projection,tv" type="text/css" />
+    <link rel="stylesheet" href="{$basePath}/css/forms/sunny/jquery-ui-1.8.6.custom.css" media="screen,projection,tv" type="text/css" />
+    <link rel="stylesheet" href="{$basePath}/css/forms/spectrum.css" media="screen,projection,tv" type="text/css" />
+
+    <link rel="stylesheet" href="{$basePath}/css/print.css" media="print" type="text/css" />
+
+    <link href="{$basePath}/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+	<script type="text/javascript" src="{$basePath}/js/jquery/jquery-1.11.1.min.js?v=1.1"></script>
+	<script type="text/javascript" src="{$basePath}/js/jquery/jquery-ui-1.11.2.min.js?v=1.1"></script>
+    <script type="text/javascript" src="{$basePath}/js/jquery/jquery.jcrop.min.js"></script>
+    <script type="text/javascript" src="{$basePath}/js/jquery/jquery.color.js"></script>
+
+    <script type="text/javascript" src="{$basePath}/js/forms/datepicker.js"></script>
+    <script type="text/javascript" src="{$basePath}/js/forms/datetimepicker.js"></script>
+    <script type="text/javascript" src="{$basePath}/js/forms/timepicker-cs.js"></script>
+    <script type="text/javascript" src="{$basePath}/js/forms/netteForms.js"></script>
+
+	<script type="text/javascript" src="{$basePath}/js/forms/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="{$basePath}/js/forms/spectrum.js"></script>
+
+</head>
+
+<body>
+<div id="page">
+
+	<div id="header">
+
+		<div id="userbox">
+			{if isset($user)}
+			<p>
+				Přihlášený jako <strong>{$user->identity->username}</strong> |
+				<a href="{link Default:logout}" class="logout">odhlásit</a>
+			</p>
+			{/if}
+		</div><!-- #userbox -->
+	</div><!-- #header -->
+
+
+	<ul id="menu">
+		{foreach $menuItems as $id => $item}
+			<li {ifCurrent $id.'*'}class="current"{/ifCurrent}>
+				{ifCurrent $id.'*'}
+					<span>{$item}</span>
+				{else}
+					<a href="{plink $id}">{$item}</a>
+				{/ifCurrent}
+			</li>
+		{/foreach}
+	</ul>
+
+
+	<h1>{block #header}{/block}</h1>
+
+	<div id="content">
+			{foreach $flashes as $flash}<div class="flash {$flash->type}">{$flash->message}</div>{/foreach}
+			{include #content}
+	</div><!-- #content -->
+
+</div><!-- #wrapper -->
+</body>
+</html>

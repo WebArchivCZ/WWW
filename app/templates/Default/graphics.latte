@@ -1,0 +1,98 @@
+{block title}{if $lang == 'cs'}Grafické materiály{else}Banners{/if} | {include #parent}{/block}
+
+{block menuItemActive2} class="active"{/block}
+
+{block content}
+
+	{include ../commonParts/about.latte}
+
+	{if $lang == 'cs'}{var img_alt = "Webarchiv certifikát"}{else}{var img_alt = "Webarchiv certificate"}{/if}
+
+	<section id="graphics">
+		<div class="container">
+
+			<h2>{if $lang == 'cs'}Grafické materiály{else}Banners{/if}</h2>
+
+			{if $lang == 'cs'}
+				<p>Pokud jste pyšní, že se vaše stránky webarchivují, udělejte nám radost a dejte si na svůj web náš certifikát:</p>
+			{else}
+				<p>If you are proud your websites are webarchived, make us pleasure and place our certificate on your site:
+			{/if}
+
+			<div class="row">
+				<div class="col-lg-2">
+					<p>{if $lang == 'cs'}certifikát{else}certificate{/if}</p>
+				</div>
+				<div class="col-lg-4">
+					{if $lang == 'cs'}
+						<p>varianta bílý podklad<br>(pro užití na bílém nebo světlém podkladu)</p>
+					{else}
+						<p>white style<br>(for usage in white or light background)</p>
+					{/if}
+					<br><img src="{$basePath}/images/graphics/webarchiv-certifikat-01.png" alt="{$img_alt}">
+				</div>
+				<div class="col-lg-4">
+					{if $lang == 'cs'}
+						<p>varianta modrý podklad<br>(pro užití na barevném nebo tmavém podkladu)</p>
+					{else}
+						<p>blue style<br>(for usage in colored or dark background)</p>
+					{/if}
+					<br><img src="{$basePath}/images/graphics/webarchiv-certifikat-02.png" alt="{$img_alt}">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-2">
+					<p>{if $lang == 'cs'}bannery{else}banners{/if}</p>
+				</div>
+				<div class="col-lg-9">
+					<p>468 x 60 px</p>
+					<br>
+					<img src="{$basePath}/images/graphics/webarchiv-ico468x60-01.png" alt="{$img_alt}">
+					<br><br>
+					<img src="{$basePath}/images/graphics/webarchiv-ico468x60-01.png" alt="{$img_alt}">
+					<br><br>
+					<img src="{$basePath}/images/graphics/webarchiv-ico468x60-02.png" alt="{$img_alt}">
+					<br><br>
+					<img src="{$basePath}/images/graphics/webarchiv-ico468x60-03.png" alt="{$img_alt}">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-2 col-lg-offset-2">
+					<p>99 x 89 px</p>
+					<br>
+					<img src="{$basePath}/images/graphics/webarchiv-ico99x89-01.png" alt="{$img_alt}">
+				</div>
+				<div class="col-lg-2">
+					<br><br>
+					<img src="{$basePath}/images/graphics/webarchiv-ico99x89-02.png" alt="{$img_alt}">
+				</div>
+				<div class="col-lg-2">
+					<br><br>
+					<img src="{$basePath}/images/graphics/webarchiv-ico99x89-03.png" alt="{$img_alt}">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-2 col-lg-offset-2">
+					<p>88 x 31px</p>
+					<br>
+					<img src="{$basePath}/images/graphics/webarchiv-ico88x31-01.png" alt="{$img_alt}">
+				</div>
+				<div class="col-lg-2">
+					<br><br>
+					<img src="{$basePath}/images/graphics/webarchiv-ico88x31-02.png" alt="{$img_alt}">
+				</div>
+				<div class="col-lg-2">
+					<br><br>
+					<img src="{$basePath}/images/graphics/webarchiv-ico88x31-03.png" alt="{$img_alt}">
+				</div>
+			</div>
+
+			<br><br>
+
+		</div>
+	</section>
+
+{/block}

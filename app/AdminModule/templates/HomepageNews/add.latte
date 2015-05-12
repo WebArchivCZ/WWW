@@ -1,0 +1,14 @@
+{block #header}Vložení novinky{/block}
+
+{block #title}{include #parent} {include #header}{/block}
+
+{block #content}
+
+    <a href="{link default}" class="back">Zpět na přehled novinek</a>
+
+	<h2>Novinka</h2>
+
+    {control addHomepageNewForm}
+
+
+{/block}

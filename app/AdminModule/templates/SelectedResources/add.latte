@@ -1,0 +1,15 @@
+{block #header}Výběr nového zdroje{/block}
+
+{block #title}{include #parent} {include #header}{/block}
+
+{block #content}
+
+    <a href="{link default}" class="back">Zpět na přehled vybraných zdrojů</a>
+
+	<h2>Výběr podle ID</h2>
+
+	<div class="indent-left">Pomocí ID načtěte data zdroje. V dalším kroku určíte, co bude viditelné na hlavní stránce.</div>
+
+    {control findSourceForm}
+
+{/block}

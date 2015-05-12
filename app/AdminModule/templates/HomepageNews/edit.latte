@@ -1,0 +1,86 @@
+{block #header}Editace novinky: {$homepageNew->title}{/block}
+
+{block #title}{include #parent} {include #header}{/block}
+
+{block #content}
+
+    <a href="{link default}" class="back">Přehled všech novinek</a><br /><br />
+    <a href="{link publish!, 'id' => $homepageNew->id}" class="{if !$homepageNew->active}un{/if}published">{if !$homepageNew->active}Nep{else}P{/if}ublikováno</a>
+
+	<h2>Obrázek (JPG nebo PNG na šířku alespoň {$presenter->imageSizes['x']})</h2>
+    {if file_exists($src = $presenter->dirPath.$presenter->filenamePrefix."_".$homepageNew->id.".jpg")}
+        <div class='singleUploadedImage'>
+			<p>{$basePath}/{$src}</p><br>
+            <img src="{$basePath}/{$src}?t={time()}" class="uploaded"><br />
+            <a href="{link deleteImage!, $homepageNew->id}" class="delete">smazat</a><br /><br />
+        </div>
+    {else}
+	    {control imageForm}
+    {/if}
+
+	<h2>Informace o vybraném zdroji</h2>
+
+    {control homepageNewForm}
+
+	<script>
+		CKEDITOR.replace('text_cs', {
+			toolbar: [
+				{ name: 'remove', items: [ 'RemoveFormat' ] },
+				{ name: 'styles', items: [ 'Format' ] },
+				{ name: 'links', items: [ 'Link', 'Unlink' ] },
+				{ name: 'image', items: [ 'Image'] },
+				{ name: 'basicstyles', items: [ 'Bold', 'Italic' ] },
+				{ name: 'lists', items: [ 'NumberedList', 'BulletedList' ] },
+				{ name: 'insert', items: [ 'SpecialChar', 'HorizontalRule'] },
+				{ name: 'document', items: [ 'Source'] }
+			],
+			contentsCss : {$basePath}+'/css/forms/my_ckeditor.css',
+			format_tags : 'p;h2;h3',
+			width : 305,
+			height: 400/*,
+			extraPlugins: 'devtools'*/
+		});
+		CKEDITOR.replace('text_en', {
+			toolbar: [
+				{ name: 'remove', items: [ 'RemoveFormat' ] },
+				{ name: 'styles', items: [ 'Format' ] },
+				{ name: 'links', items: [ 'Link', 'Unlink' ] },
+				{ name: 'image', items: [ 'Image'] },
+				{ name: 'basicstyles', items: [ 'Bold', 'Italic' ] },
+				{ name: 'lists', items: [ 'NumberedList', 'BulletedList' ] },
+				{ name: 'insert', items: [ 'SpecialChar', 'HorizontalRule'] },
+				{ name: 'document', items: [ 'Source'] }
+			],
+			contentsCss : {$basePath}+'/css/forms/my_ckeditor.css',
+			format_tags : 'p;h2;h3',
+			width : 305,
+			height: 400
+		});
+
+		CKEDITOR.on( 'dialogDefinition', function(ev) {
+			// Take the dialog name and its definition from the event data.
+			var dialogName = ev.data.name;
+			var dialogDefinition = ev.data.definition;
+
+			// Check if the definition is from the dialog window you are interested in (the "Link" dialog window).
+			if (dialogName === 'image') {
+				// Get a reference to the "Link Info" tab.
+				var infoTab = dialogDefinition.getContents('info');
+
+				// Set the default value for the URL field.
+				var urlField = infoTab.get('txtUrl');
+				urlField['default'] = {$basePath}+'/'+{$src};
+				infoTab.remove('txtWidth');
+				infoTab.remove('txtHeight');
+				infoTab.remove('ratioLock');
+				infoTab.remove('txtBorder');
+				infoTab.remove('txtHSpace');
+				infoTab.remove('txtVSpace');
+				infoTab.remove('cmbAlign');
+				infoTab.remove('htmlPreview');
+			}
+		});
+
+	</script>
+
+{/block}

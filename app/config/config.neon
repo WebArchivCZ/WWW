@@ -1,0 +1,48 @@
+#
+# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+#
+# If you don't protect this directory from direct web access, anybody will be able to see your passwords.
+# http://nette.org/security-warning
+#
+common:
+
+	php:
+		date.timezone: Europe/Prague
+		# session.save_path: "%tempDir%/sessions"
+		# zlib.output_compression: yes
+
+
+	nette:
+		session:
+			autoStart: true
+			expiration: +30 days
+
+	services:
+		categoriesCs: WebArchiv\CategoriesCs
+		categoriesEn: WebArchiv\CategoriesEn
+		contracts: WebArchiv\Contracts
+		curators: WebArchiv\Curators
+		homepageNews: WebArchiv\HomepageNews
+		keywords: WebArchiv\Keywords
+		keywordsResources: WebArchiv\KeywordsResources
+		publicNominations: WebArchiv\PublicNominations
+		publishers: WebArchiv\Publishers
+		resources: WebArchiv\Resources
+		searchLogs: WebArchiv\SearchLogs
+		selectedResources: WebArchiv\SelectedResources
+		subcategoriesCs: WebArchiv\SubcategoriesCs
+		subcategoriesEn: WebArchiv\SubcategoriesEn
+		topicCollections: WebArchiv\TopicCollections		
+
+		database: @Nette\Database\Context
+		connection: @Nette\Database\Connection
+		authenticator: Authenticator( @database::table(curators) )
+
+
+production < common:
+	includes:
+		- config.product.neon
+ 
+development < common:
+	includes:
+		- config.local.neon

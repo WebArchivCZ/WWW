@@ -1,0 +1,49 @@
+{block #header}Nominace veřejnosti{/block}
+
+{block #title}{include #parent} {include #header}{/block}
+
+{block #content}
+
+	{if count($publicNominations) > 0}
+
+		<table class="items">
+			<tr>
+				<th>URL</th>
+				<th>Může jednat?</th>
+				<th>Creative Commons</th>
+				<th>Jméno</th>
+				<th>E-mail</th>
+				<th>Přidáno</th>
+			</tr>
+			{foreach $publicNominations as $publicNomination}
+				<tr>
+					<td class="item_row">
+						<span>{$publicNomination->url}</span>
+					</td>
+					<td class="item_row">
+						<span>{if $publicNomination->representative}Ano{else}-{/if}</span>
+					</td>
+					<td class="item_row">
+						<span>{if $publicNomination->cc}Ano{else}-{/if}</span>
+					</td>
+					<td class="item_row">
+						<span>{$publicNomination->name}</span>
+					</td>
+					<td class="item_row">
+						<span>{$publicNomination->email}</span>
+					</td>
+					<td class="item_row">
+						<span>{$publicNomination->added|date:'j.n.Y H:i:s'}</span>
+					</td>
+				</tr>
+
+			{/foreach}
+		</table>
+
+	{else}
+
+        <p>Zatím nebyla vložena žádná stránka.</p>
+
+	{/if}
+
+{/block}

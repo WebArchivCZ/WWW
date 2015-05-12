@@ -1,0 +1,19 @@
+{block #header}Editace výběru zdroje: {$selectedResource->title}{/block}
+
+{block #title}{include #parent} {include #header}{/block}
+
+{block #content}
+
+    <a href="{link default}" class="back">Přehled všech vybraných zdrojů</a><br /><br />
+    <a href="{link publish!, 'id' => $selectedResource->id}" class="{if !$selectedResource->active}un{/if}published">{if !$selectedResource->active}Nep{else}P{/if}ublikováno</a>
+
+	<h2>Informace o vybraném zdroji</h2>
+
+	{control useOriginalResourceForm}
+	<div class="indent-left">Pokud dojde k nežádnoucí změně, je možné nechat si znovu načíst původní data zdroje</div>
+
+
+    {control selectedResourceForm}
+
+
+{/block}
