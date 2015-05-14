@@ -2,6 +2,11 @@
 
 class ErrorPresenter extends BasePresenter {
 
+	public function startup() {
+        parent::startup();
+		$this->lang = 'cs';
+	}
+		
 	public function renderDefault($exception) {
 		if ($this->isAjax()) { // AJAX request? Just note this error in payload.
 			$this->payload->error = TRUE;
