@@ -4,7 +4,9 @@ class ErrorPresenter extends BasePresenter {
 
 	public function startup() {
         parent::startup();
-		$this->lang = 'cs';
+		if(!$this->lang) {
+			$this->lang = 'cs';
+		}
 	}
 		
 	public function renderDefault($exception) {
