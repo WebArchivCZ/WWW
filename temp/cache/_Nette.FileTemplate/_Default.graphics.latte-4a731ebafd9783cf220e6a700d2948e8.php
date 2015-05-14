@@ -1,31 +1,31 @@
-<?php //netteCache[01]000379a:2:{s:4:"time";s:21:"0.17594500 1431608010";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:65:"/srv/www/htdocs/webarchiv.cz/app/templates/Default/graphics.latte";i:2;i:1431608005;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2015-01-06";}}}?><?php
+<?php //netteCache[01]000379a:2:{s:4:"time";s:21:"0.87247300 1431612182";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:65:"/srv/www/htdocs/webarchiv.cz/app/templates/Default/graphics.latte";i:2;i:1431612176;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2015-01-06";}}}?><?php
 
 // source file: /srv/www/htdocs/webarchiv.cz/app/templates/Default/graphics.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'kuio336xf2')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'bzchacxpnk')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lb536e3a25fa_title')) { function _lb536e3a25fa_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['title'][] = '_lbcaab64507e_title')) { function _lbcaab64507e_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;if ($lang == 'cs') { ?>Grafické materiály<?php } else { ?>Banners<?php } ?> | <?php Nette\Latte\Macros\UIMacros::callBlockParent($_l, 'title', get_defined_vars()) ;
 }}
 
 //
 // block menuItemActive2
 //
-if (!function_exists($_l->blocks['menuItemActive2'][] = '_lbf820f57a87_menuItemActive2')) { function _lbf820f57a87_menuItemActive2($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['menuItemActive2'][] = '_lba0060924ef_menuItemActive2')) { function _lba0060924ef_menuItemActive2($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?> class="active"<?php
 }}
 
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb2904b6cdd7_content')) { function _lb2904b6cdd7_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
-;Nette\Latte\Macros\CoreMacros::includeTemplate("../commonParts/about.latte", $template->getParameters(), $_l->templates['kuio336xf2'])->render() ?>
+if (!function_exists($_l->blocks['content'][] = '_lbd4a8f17e99_content')) { function _lbd4a8f17e99_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+;Nette\Latte\Macros\CoreMacros::includeTemplate("../commonParts/about.latte", $template->getParameters(), $_l->templates['bzchacxpnk'])->render() ?>
 
 	<?php if ($lang == 'cs') { $img_alt = "Webarchiv certifikát" ;} else { $img_alt = "Webarchiv certificate" ;} ?>
 
@@ -76,13 +76,13 @@ if (!function_exists($_l->blocks['content'][] = '_lb2904b6cdd7_content')) { func
 /images/graphics/webarchiv-ico468x60-01.png" alt="<?php echo Nette\Templating\Helpers::escapeHtml($img_alt, ENT_COMPAT) ?>">
 					<br><br>
 					<img src="<?php echo Nette\Templating\Helpers::escapeHtml(Nette\Templating\Helpers::safeUrl($basePath), ENT_COMPAT) ?>
-/images/graphics/webarchiv-ico468x60-01.png" alt="<?php echo Nette\Templating\Helpers::escapeHtml($img_alt, ENT_COMPAT) ?>">
-					<br><br>
-					<img src="<?php echo Nette\Templating\Helpers::escapeHtml(Nette\Templating\Helpers::safeUrl($basePath), ENT_COMPAT) ?>
 /images/graphics/webarchiv-ico468x60-02.png" alt="<?php echo Nette\Templating\Helpers::escapeHtml($img_alt, ENT_COMPAT) ?>">
 					<br><br>
 					<img src="<?php echo Nette\Templating\Helpers::escapeHtml(Nette\Templating\Helpers::safeUrl($basePath), ENT_COMPAT) ?>
 /images/graphics/webarchiv-ico468x60-03.png" alt="<?php echo Nette\Templating\Helpers::escapeHtml($img_alt, ENT_COMPAT) ?>">
+					<br><br>
+					<img src="<?php echo Nette\Templating\Helpers::escapeHtml(Nette\Templating\Helpers::safeUrl($basePath), ENT_COMPAT) ?>
+/images/graphics/webarchiv-ico468x60-04.png" alt="<?php echo Nette\Templating\Helpers::escapeHtml($img_alt, ENT_COMPAT) ?>">
 				</div>
 			</div>
 
