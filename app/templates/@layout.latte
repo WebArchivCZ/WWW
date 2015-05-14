@@ -59,8 +59,8 @@
 				</a>
 
 				<div class="langs">
-					<a href="{plink default, lang => cs}"{if $lang=='cs'} class="current"{/if}>CZ</a>
-					<a href="{plink default, lang => en}"{if $lang=='en'} class="current"{/if}>EN</a>
+					<a href="{plink Default:default, lang => cs}"{if $lang=='cs'} class="current"{/if}>CZ</a>
+					<a href="{plink Default:default, lang => en}"{if $lang=='en'} class="current"{/if}>EN</a>
 				</div>
 
 				{if $presenter->action!='default' && $presenter->action!='advancedSearch'}
@@ -78,10 +78,10 @@
 			<div class="collapse navbar-collapse" id="bs-navbar-collapse">
 
 				<ul class="nav navbar-nav">
-					<li{block #menuItemActive1}{/block}><a href="{plink default}">{if $lang == 'cs'}úvod{else}home{/if}</a></li>
-					<li{block #menuItemActive2}{/block}><a href="{plink about}">{if $lang == 'cs'}o Webarchivu{else}about Webarchiv{/if}</a></li>
-					<li{block #menuItemActive3}{/block}><a href="{plink catalog}">{if $lang == 'cs'}katalog stránek{else}browse{/if}</a></li>
-					<li{block #menuItemActive4}{/block}><a href="{plink add}">{if $lang == 'cs'}přidat web{else}nominate a site{/if}</a></li>
+					<li{block #menuItemActive1}{/block}><a href="{plink Default:default}">{if $lang == 'cs'}úvod{else}home{/if}</a></li>
+					<li{block #menuItemActive2}{/block}><a href="{plink Default:about}">{if $lang == 'cs'}o Webarchivu{else}about Webarchiv{/if}</a></li>
+					<li{block #menuItemActive3}{/block}><a href="{plink Default:catalog}">{if $lang == 'cs'}katalog stránek{else}browse{/if}</a></li>
+					<li{block #menuItemActive4}{/block}><a href="{plink Default:add}">{if $lang == 'cs'}přidat web{else}nominate a site{/if}</a></li>
 				</ul>
 
 			</div><!-- /.navbar-collapse -->
@@ -105,23 +105,22 @@
 				<div class="col-sm-6 info">
 					<ul>
 						{if $lang=='cs'}
-							<li><a href="{plink default}">Webarchiv</a> je pod licencí:</li>
-							<li><a href="{plink creativeCommons}" class="cc-link"><img src="{$basePath}/images/design/cc-icons/by-nc-nd.eu.svg" alt="CC BY NC ND"></a></li>
+							<li><a href="{plink Default:default}">Webarchiv</a> je pod licencí:<br><a href="{plink Default:creativeCommons}" class="cc-link"><strong>CC</strong> BY/NC/ND</a></li>
 							<li><br>Koncept a grafickou podobu připravili<br><a href="http://www.kofila.com/" target="_blank">Bohdan Heblík</a> & <a href="http://zlodejpapiru.cz/" target="_blank">Luboš Svoboda</a><br>Do chodu vše uvedl <a href="http://www.tomaskorinek.com/" target="_blank">Tomáš Kořínek</a></li>
 						{else}
-							<li><a href="{plink default}">Webarchiv</a> is licensed under:<br><a href="{plink creativeCommons}" class="cc-link"><strong>CC</strong> BY/NC/ND</a></li>
+							<li><a href="{plink Default:default}">Webarchiv</a> is licensed under:<br><a href="{plink Default:creativeCommons}" class="cc-link"><strong>CC</strong> BY/NC/ND</a></li>
 							<li><br>Webdesign:<br><a href="http://www.kofila.com/" target="_blank">Bohdan Heblík</a> & <a href="http://zlodejpapiru.cz/" target="_blank">Luboš Svoboda</a><br>Programming: <a href="http://www.tomaskorinek.com/" target="_blank">Tomáš Kořínek</a></li>
 						{/if}
 					</ul>
 				</div>
 
 				<div class="col-sm-2 col-sm-offset-4 external-links">
-					<h2><a href="{plink default}">WWW</a></h2>
+					<h2><a href="{plink Default:default}">WWW</a></h2>
 					<ul>
-						<li><a href="{plink contact}">{if $lang=='cs'}kontakt{else}contact{/if}</a></li>
+						<li><a href="{plink Default:contact}">{if $lang=='cs'}kontakt{else}contact{/if}</a></li>
 						<li><a href="https://www.facebook.com/webarchivcr">facebook</a></li>
 						<li><a href="http://blog.webarchiv.cz/">blog</a></li>
-						<li><a href="{plink graphics}">logo</a></li>
+						<li><a href="{plink Default:graphics}">logo</a></li>
 					</ul>
 				</div>
 

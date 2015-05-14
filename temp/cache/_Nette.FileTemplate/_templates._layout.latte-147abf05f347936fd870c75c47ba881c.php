@@ -1,23 +1,23 @@
-<?php //netteCache[01]000370a:2:{s:4:"time";s:21:"0.83243000 1429812036";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"/srv/www/htdocs/webarchiv.cz/app/templates/@layout.latte";i:2;i:1429718033;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2015-01-06";}}}?><?php
+<?php //netteCache[01]000370a:2:{s:4:"time";s:21:"0.94010300 1431609956";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:56:"/srv/www/htdocs/webarchiv.cz/app/templates/@layout.latte";i:2;i:1431609945;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2015-01-06";}}}?><?php
 
 // source file: /srv/www/htdocs/webarchiv.cz/app/templates/@layout.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'uqeqitmyhn')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'py3esbxkay')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lb0966524a92_title')) { function _lb0966524a92_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['title'][] = '_lbbe708785fd_title')) { function _lbbe708785fd_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;echo $template->firstUpper(DOMAIN_NAME) ;
 }}
 
 //
 // block ogImage
 //
-if (!function_exists($_l->blocks['ogImage'][] = '_lb31bbddca5a_ogImage')) { function _lb31bbddca5a_ogImage($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['ogImage'][] = '_lbc68b86f352_ogImage')) { function _lbc68b86f352_ogImage($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?>http://<?php echo Nette\Templating\Helpers::escapeHtml($_SERVER['HTTP_HOST'], ENT_COMPAT) ?>
 /images/design/social/facebook.gif<?php
 }}
@@ -25,35 +25,35 @@ if (!function_exists($_l->blocks['ogImage'][] = '_lb31bbddca5a_ogImage')) { func
 //
 // block menuItemActive1
 //
-if (!function_exists($_l->blocks['menuItemActive1'][] = '_lb36a6ba4a4d_menuItemActive1')) { function _lb36a6ba4a4d_menuItemActive1($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['menuItemActive1'][] = '_lbd2423232c9_menuItemActive1')) { function _lbd2423232c9_menuItemActive1($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
 //
 // block menuItemActive2
 //
-if (!function_exists($_l->blocks['menuItemActive2'][] = '_lb48f6879fd7_menuItemActive2')) { function _lb48f6879fd7_menuItemActive2($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['menuItemActive2'][] = '_lbe7b210e34a_menuItemActive2')) { function _lbe7b210e34a_menuItemActive2($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
 //
 // block menuItemActive3
 //
-if (!function_exists($_l->blocks['menuItemActive3'][] = '_lb6877b2ea08_menuItemActive3')) { function _lb6877b2ea08_menuItemActive3($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['menuItemActive3'][] = '_lbd88c9adcd5_menuItemActive3')) { function _lbd88c9adcd5_menuItemActive3($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
 //
 // block menuItemActive4
 //
-if (!function_exists($_l->blocks['menuItemActive4'][] = '_lbad5c7f77f2_menuItemActive4')) { function _lbad5c7f77f2_menuItemActive4($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['menuItemActive4'][] = '_lb9ced84b3d2_menuItemActive4')) { function _lb9ced84b3d2_menuItemActive4($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb08818209af_content')) { function _lb08818209af_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['content'][] = '_lbb370c8f2da_content')) { function _lbb370c8f2da_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
@@ -115,7 +115,7 @@ call_user_func(reset($_l->blocks['title']), $_l, get_defined_vars())  ?></title>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
-<?php if ($productionMode) { Nette\Latte\Macros\CoreMacros::includeTemplate("util/googleAnalytics.latte", $template->getParameters(), $_l->templates['uqeqitmyhn'])->render() ;} ?>
+<?php if ($productionMode) { Nette\Latte\Macros\CoreMacros::includeTemplate("util/googleAnalytics.latte", $template->getParameters(), $_l->templates['py3esbxkay'])->render() ;} ?>
 
 </head>
 
@@ -137,9 +137,9 @@ call_user_func(reset($_l->blocks['title']), $_l, get_defined_vars())  ?></title>
 				</a>
 
 				<div class="langs">
-					<a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("default", array('lang' => 'cs')), ENT_COMPAT) ?>
+					<a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("Default:default", array('lang' => 'cs')), ENT_COMPAT) ?>
 "<?php if ($lang=='cs') { ?> class="current"<?php } ?>>CZ</a>
-					<a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("default", array('lang' => 'en')), ENT_COMPAT) ?>
+					<a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("Default:default", array('lang' => 'en')), ENT_COMPAT) ?>
 "<?php if ($lang=='en') { ?> class="current"<?php } ?>>EN</a>
 				</div>
 
@@ -161,16 +161,16 @@ call_user_func(reset($_l->blocks['title']), $_l, get_defined_vars())  ?></title>
 
 				<ul class="nav navbar-nav">
 					<li<?php call_user_func(reset($_l->blocks['menuItemActive1']), $_l, get_defined_vars())  ?>
-><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("default"), ENT_COMPAT) ?>
+><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("Default:default"), ENT_COMPAT) ?>
 "><?php if ($lang == 'cs') { ?>úvod<?php } else { ?>home<?php } ?></a></li>
 					<li<?php call_user_func(reset($_l->blocks['menuItemActive2']), $_l, get_defined_vars())  ?>
-><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("about"), ENT_COMPAT) ?>
+><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("Default:about"), ENT_COMPAT) ?>
 "><?php if ($lang == 'cs') { ?>o Webarchivu<?php } else { ?>about Webarchiv<?php } ?></a></li>
 					<li<?php call_user_func(reset($_l->blocks['menuItemActive3']), $_l, get_defined_vars())  ?>
-><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("catalog"), ENT_COMPAT) ?>
+><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("Default:catalog"), ENT_COMPAT) ?>
 "><?php if ($lang == 'cs') { ?>katalog stránek<?php } else { ?>browse<?php } ?></a></li>
 					<li<?php call_user_func(reset($_l->blocks['menuItemActive4']), $_l, get_defined_vars())  ?>
-><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("add"), ENT_COMPAT) ?>
+><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("Default:add"), ENT_COMPAT) ?>
 "><?php if ($lang == 'cs') { ?>přidat web<?php } else { ?>nominate a site<?php } ?></a></li>
 				</ul>
 
@@ -198,26 +198,25 @@ call_user_func(reset($_l->blocks['title']), $_l, get_defined_vars())  ?></title>
 				<div class="col-sm-6 info">
 					<ul>
 <?php if ($lang=='cs') { ?>
-							<li><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("default"), ENT_COMPAT) ?>">Webarchiv</a> je pod licencí:</li>
-							<li><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("creativeCommons"), ENT_COMPAT) ?>
-" class="cc-link"><img src="<?php echo Nette\Templating\Helpers::escapeHtml(Nette\Templating\Helpers::safeUrl($basePath), ENT_COMPAT) ?>/images/design/cc-icons/by-nc-nd.eu.svg" alt="CC BY NC ND"></a></li>
+							<li><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("Default:default"), ENT_COMPAT) ?>
+">Webarchiv</a> je pod licencí:<br><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("Default:creativeCommons"), ENT_COMPAT) ?>" class="cc-link"><strong>CC</strong> BY/NC/ND</a></li>
 							<li><br>Koncept a grafickou podobu připravili<br><a href="http://www.kofila.com/" target="_blank">Bohdan Heblík</a> & <a href="http://zlodejpapiru.cz/" target="_blank">Luboš Svoboda</a><br>Do chodu vše uvedl <a href="http://www.tomaskorinek.com/" target="_blank">Tomáš Kořínek</a></li>
 <?php } else { ?>
-							<li><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("default"), ENT_COMPAT) ?>
-">Webarchiv</a> is licensed under:<br><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("creativeCommons"), ENT_COMPAT) ?>" class="cc-link"><strong>CC</strong> BY/NC/ND</a></li>
+							<li><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("Default:default"), ENT_COMPAT) ?>
+">Webarchiv</a> is licensed under:<br><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("Default:creativeCommons"), ENT_COMPAT) ?>" class="cc-link"><strong>CC</strong> BY/NC/ND</a></li>
 							<li><br>Webdesign:<br><a href="http://www.kofila.com/" target="_blank">Bohdan Heblík</a> & <a href="http://zlodejpapiru.cz/" target="_blank">Luboš Svoboda</a><br>Programming: <a href="http://www.tomaskorinek.com/" target="_blank">Tomáš Kořínek</a></li>
 <?php } ?>
 					</ul>
 				</div>
 
 				<div class="col-sm-2 col-sm-offset-4 external-links">
-					<h2><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("default"), ENT_COMPAT) ?>">WWW</a></h2>
+					<h2><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("Default:default"), ENT_COMPAT) ?>">WWW</a></h2>
 					<ul>
-						<li><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("contact"), ENT_COMPAT) ?>
+						<li><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("Default:contact"), ENT_COMPAT) ?>
 "><?php if ($lang=='cs') { ?>kontakt<?php } else { ?>contact<?php } ?></a></li>
 						<li><a href="https://www.facebook.com/webarchivcr">facebook</a></li>
 						<li><a href="http://blog.webarchiv.cz/">blog</a></li>
-						<li><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("graphics"), ENT_COMPAT) ?>">logo</a></li>
+						<li><a href="<?php echo Nette\Templating\Helpers::escapeHtml($_presenter->link("Default:graphics"), ENT_COMPAT) ?>">logo</a></li>
 					</ul>
 				</div>
 

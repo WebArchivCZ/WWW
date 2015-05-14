@@ -84,6 +84,12 @@ $frontRouter[] = new Route('files/vydavatele/certifikat.html', array(
 	'lang' => 'cs'
 ), Route::ONE_WAY);
 
+$frontRouter[] = new Route('certifikat', array(
+	'presenter' => 'Default',
+	'action' => 'graphics',
+	'lang' => 'cs'
+), Route::ONE_WAY);
+
 $frontRouter[] = new Route('<lang en|cs>', array(
 	'presenter' => 'Default',
 	'action'    => 'default',
@@ -202,7 +208,7 @@ $frontRouter[] = new Route('cs/<action>', array(
 			'creative-commons' => 'creativeCommons',
 			'vyber-zdroju' => 'sourceSelection',
 			'pomozte-nam-uchovat-cesky-web' => 'cooperation',
-			'certifikat' => 'disclaimer',
+			'certifikovano' => 'disclaimer'
 		),
     ),
 ));

@@ -1,31 +1,31 @@
-<?php //netteCache[01]000379a:2:{s:4:"time";s:21:"0.71192200 1429901942";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:65:"/srv/www/htdocs/webarchiv.cz/app/templates/Default/graphics.latte";i:2;i:1429718033;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2015-01-06";}}}?><?php
+<?php //netteCache[01]000379a:2:{s:4:"time";s:21:"0.17594500 1431608010";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:65:"/srv/www/htdocs/webarchiv.cz/app/templates/Default/graphics.latte";i:2;i:1431608005;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2015-01-06";}}}?><?php
 
 // source file: /srv/www/htdocs/webarchiv.cz/app/templates/Default/graphics.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '0x7yqc1w85')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'kuio336xf2')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lbdb72bb793f_title')) { function _lbdb72bb793f_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['title'][] = '_lb536e3a25fa_title')) { function _lb536e3a25fa_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;if ($lang == 'cs') { ?>Grafické materiály<?php } else { ?>Banners<?php } ?> | <?php Nette\Latte\Macros\UIMacros::callBlockParent($_l, 'title', get_defined_vars()) ;
 }}
 
 //
 // block menuItemActive2
 //
-if (!function_exists($_l->blocks['menuItemActive2'][] = '_lbef2c4d31d2_menuItemActive2')) { function _lbef2c4d31d2_menuItemActive2($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['menuItemActive2'][] = '_lbf820f57a87_menuItemActive2')) { function _lbf820f57a87_menuItemActive2($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?> class="active"<?php
 }}
 
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb241419e8e8_content')) { function _lb241419e8e8_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
-;Nette\Latte\Macros\CoreMacros::includeTemplate("../commonParts/about.latte", $template->getParameters(), $_l->templates['0x7yqc1w85'])->render() ?>
+if (!function_exists($_l->blocks['content'][] = '_lb2904b6cdd7_content')) { function _lb2904b6cdd7_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+;Nette\Latte\Macros\CoreMacros::includeTemplate("../commonParts/about.latte", $template->getParameters(), $_l->templates['kuio336xf2'])->render() ?>
 
 	<?php if ($lang == 'cs') { $img_alt = "Webarchiv certifikát" ;} else { $img_alt = "Webarchiv certificate" ;} ?>
 
@@ -121,6 +121,23 @@ if (!function_exists($_l->blocks['content'][] = '_lb241419e8e8_content')) { func
 					<br><br>
 					<img src="<?php echo Nette\Templating\Helpers::escapeHtml(Nette\Templating\Helpers::safeUrl($basePath), ENT_COMPAT) ?>
 /images/graphics/webarchiv-ico88x31-03.png" alt="<?php echo Nette\Templating\Helpers::escapeHtml($img_alt, ENT_COMPAT) ?>">
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-lg-2">
+					<p><?php if ($lang == 'cs') { ?>starší verze<br>certifikátu<?php } else { ?>
+old version of<br>certificate<?php } ?></p>
+				</div>
+				<div class="col-lg-4">
+					<br><br>
+					<img src="<?php echo Nette\Templating\Helpers::escapeHtml(Nette\Templating\Helpers::safeUrl($basePath), ENT_COMPAT) ?>
+/images/webarchiv_certifikat_c.gif" alt="<?php echo Nette\Templating\Helpers::escapeHtml($img_alt, ENT_COMPAT) ?>">
+				</div>
+				<div class="col-lg-4">
+					<br><br>
+					<img src="<?php echo Nette\Templating\Helpers::escapeHtml(Nette\Templating\Helpers::safeUrl($basePath), ENT_COMPAT) ?>
+/images/webarchiv_certifikat_cb.gif" alt="<?php echo Nette\Templating\Helpers::escapeHtml($img_alt, ENT_COMPAT) ?>">
 				</div>
 			</div>
 
