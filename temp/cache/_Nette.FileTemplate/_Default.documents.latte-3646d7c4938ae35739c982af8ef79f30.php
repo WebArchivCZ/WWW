@@ -1,31 +1,31 @@
-<?php //netteCache[01]000380a:2:{s:4:"time";s:21:"0.87570200 1429901933";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:66:"/srv/www/htdocs/webarchiv.cz/app/templates/Default/documents.latte";i:2;i:1429718033;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2015-01-06";}}}?><?php
+<?php //netteCache[01]000380a:2:{s:4:"time";s:21:"0.77882000 1431606091";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:66:"/srv/www/htdocs/webarchiv.cz/app/templates/Default/documents.latte";i:2;i:1431606086;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2015-01-06";}}}?><?php
 
 // source file: /srv/www/htdocs/webarchiv.cz/app/templates/Default/documents.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'l7ys4u8ve3')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '2ca50d2v5k')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lb2b851b41f1_title')) { function _lb2b851b41f1_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['title'][] = '_lb705278593b_title')) { function _lb705278593b_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;if ($lang == 'cs') { ?>Dokumenty<?php } else { ?>Documents<?php } ?> | <?php Nette\Latte\Macros\UIMacros::callBlockParent($_l, 'title', get_defined_vars()) ;
 }}
 
 //
 // block menuItemActive2
 //
-if (!function_exists($_l->blocks['menuItemActive2'][] = '_lb42cfd2ebc9_menuItemActive2')) { function _lb42cfd2ebc9_menuItemActive2($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['menuItemActive2'][] = '_lb17d1f38e44_menuItemActive2')) { function _lb17d1f38e44_menuItemActive2($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?> class="active"<?php
 }}
 
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lbd7fbcb6e6f_content')) { function _lbd7fbcb6e6f_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
-;Nette\Latte\Macros\CoreMacros::includeTemplate("../commonParts/about.latte", $template->getParameters(), $_l->templates['l7ys4u8ve3'])->render() ?>
+if (!function_exists($_l->blocks['content'][] = '_lba964fa7092_content')) { function _lba964fa7092_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+;Nette\Latte\Macros\CoreMacros::includeTemplate("../commonParts/about.latte", $template->getParameters(), $_l->templates['2ca50d2v5k'])->render() ?>
 
 	<section>
 		<div class="container">
@@ -55,6 +55,11 @@ if (!function_exists($_l->blocks['content'][] = '_lbd7fbcb6e6f_content')) { func
 					<li>Internet Archive <a href="http://www.archive.org">http://www.archive.org</a></li>
 				</ul>
 
+				<h3>Metodiky</h3>
+				<ul class="normal">
+					<li>Metodika budování sbírky Webarchivu (Collection policy) <a href="http://webarchiv.cz/download/Collection_Policy.pdf">[PDF]</a></li>
+				</ul>
+				
 <?php } else { ?>
 
 				<h2>Documents</h2>
@@ -80,6 +85,11 @@ if (!function_exists($_l->blocks['content'][] = '_lbd7fbcb6e6f_content')) { func
 					<li>Internet Archive <a href="http://www.archive.org">http://www.archive.org</a></li>
 				</ul>
 
+				<h3>Methodics</h3>
+				<ul class="normal">
+					<li>Collection policy (czech only) <a href="http://webarchiv.cz/download/Collection_Policy.pdf">[PDF]</a></li>
+				</ul>
+				
 <?php } ?>
 
 		</div>
