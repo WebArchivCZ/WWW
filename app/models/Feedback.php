@@ -3,7 +3,7 @@
 namespace WebArchiv;
 
 
-class Feedback extends Table
+class feedback extends Table
 {
 	protected $tableName = 'feedback';
 
