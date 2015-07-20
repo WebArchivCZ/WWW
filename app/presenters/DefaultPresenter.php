@@ -291,6 +291,21 @@ class DefaultPresenter extends \BasePresenter {
         return $form;
     }	
 
+     public function createComponentFeedbackWebForm() {
+
+		$form = new Form;
+		$form->addAntispam();
+
+		$form->addText('name', 'Kontakt:', '', 256);
+		$form->addTextArea('note', 'Co se pokazilo? ');
+			 ->addRule(Form::FILLED, 'Zadejte prosím, co se pokazilo.')
+		$form->addSubmit('submit', 'Odeslat');
+
+		$form->onSuccess[] = callback($this, 'processFeedbackWebForm');
+
+        return $form;
+    }
+
 	
 /* UKLADANI FORMULARE */
 /**********************/
@@ -359,6 +374,24 @@ class DefaultPresenter extends \BasePresenter {
 				}
 			}
             $this->flashMessage('Děkujeme za vložení nového webu! Naši kurátoři se Vám brzy ozvou.', 'success');
+		}
+		$this->redirect('this');
+	}		
+    
+}
+
+public function processFeedbackWebForm(Form $form) {
+		
+		if($form->isSubmitted()) {
+            $values = $form->getValues();
+			$values['added'] = new \DateTime();
+			unset($values['spam']);
+			unset($values['form_created']);
+
+			// vlozime do DB
+			$this->feedback->create($values);
+			
+            $this->flashMessage('Děkujeme za to, že pomáháte vylepšit český webový archiv', 'success');
 		}
 		$this->redirect('this');
 	}		

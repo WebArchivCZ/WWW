@@ -26,6 +26,7 @@ common:
 		keywords: WebArchiv\Keywords
 		keywordsResources: WebArchiv\KeywordsResources
 		publicNominations: WebArchiv\PublicNominations
+		feedback: WebArchiv\Feedback
 		publishers: WebArchiv\Publishers
 		resources: WebArchiv\Resources
 		searchLogs: WebArchiv\SearchLogs

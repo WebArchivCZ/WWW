@@ -16,6 +16,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter {
 	protected $keywordsResources;
 	protected $keywords;
 	protected $publicNominations;
+	protected $feedback;
 	protected $publishers;
 	protected $resources;
 	protected $searchLogs; 
@@ -48,6 +49,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter {
 		WebArchiv\Keywords $keywords,
 		WebArchiv\KeywordsResources $keywordsResources,
 		WebArchiv\PublicNominations $publicNominations,
+		WebArchiv\Feedback $feedback,
 		WebArchiv\Publishers $publishers,
 		WebArchiv\Resources $resources,
 		WebArchiv\SearchLogs $searchLogs,
@@ -64,6 +66,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter {
 		$this->keywordsResources = $keywordsResources;
 		$this->keywords = $keywords;
 		$this->publicNominations = $publicNominations;
+		$this->feedback = $feedback;
 		$this->publishers = $publishers;
 		$this->resources = $resources;
 		$this->searchLogs = $searchLogs;
