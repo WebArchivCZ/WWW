@@ -378,7 +378,7 @@ class DefaultPresenter extends \BasePresenter {
 		$this->redirect('this');
 	}		
     
-}
+
 
 public function processFeedbackWebForm(Form $form) {
 		
@@ -396,4 +396,6 @@ public function processFeedbackWebForm(Form $form) {
 		$this->redirect('this');
 	}		
     
+}
+
 }
