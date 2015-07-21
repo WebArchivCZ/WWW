@@ -49,7 +49,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter {
 		WebArchiv\Keywords $keywords,
 		WebArchiv\KeywordsResources $keywordsResources,
 		WebArchiv\PublicNominations $publicNominations,
-		WebArchiv\Feedback $feedback,
+		WebArchiv\feedback $feedback,
 		WebArchiv\Publishers $publishers,
 		WebArchiv\Resources $resources,
 		WebArchiv\SearchLogs $searchLogs,
