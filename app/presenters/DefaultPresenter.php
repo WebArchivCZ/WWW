@@ -297,7 +297,7 @@ class DefaultPresenter extends \BasePresenter {
 		$form->addAntispam();
 
 		$form->addText('name', 'Kontakt:', '', 256);
-		$form->addTextArea('note', 'Co se pokazilo? ');
+		$form->addTextArea('note', 'Co se pokazilo? ')
 			 ->addRule(Form::FILLED, 'Zadejte prosím, co se pokazilo.');
 		$form->addSubmit('submit', 'Odeslat');
 
