@@ -396,6 +396,5 @@ public function processFeedbackWebForm(Form $form) {
 		$this->redirect('this');
 	}		
     
-}
 
 }
