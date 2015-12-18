@@ -274,7 +274,8 @@ class DefaultPresenter extends \BasePresenter {
 
 		$form = new Form;
 		$form->addAntispam();
-
+	
+	if($this->lang=='cs') {
 		$form->addText('url', 'URL:*')
 			 ->addRule(Form::FILLED, 'Zadejte prosím platné URL.');
 		$form->addCheckbox('representative');
@@ -285,7 +286,19 @@ class DefaultPresenter extends \BasePresenter {
 			 ->addRule(Form::EMAIL, 'Zadejte prosím platnou e-mailovou adresu.');
 		$form->addTextArea('note', 'Poznámka:');
 		$form->addSubmit('submit', 'Přidat web');
-
+	}
+	else { 
+		$form->addText('url', 'URL:*')
+			 ->addRule(Form::FILLED, 'Your URL is invalid.');
+		$form->addCheckbox('representative');
+		$form->addCheckbox('cc');
+		$form->addText('name', 'Name:', '', 256);
+		$form->addText('email', 'Email:*', '', 256)
+			 ->addRule(Form::FILLED, 'Please enter your email address.')
+			 ->addRule(Form::EMAIL, 'Your email address is invalid.');
+		$form->addTextArea('note', 'Comment:');
+		$form->addSubmit('submit', 'Nominate web');
+	}
 		$form->onSuccess[] = callback($this, 'processAddWebForm');
 
         return $form;
@@ -373,7 +386,8 @@ class DefaultPresenter extends \BasePresenter {
 					$mailer->send($mail);			
 				}
 			}
-            $this->flashMessage('Děkujeme za vložení nového webu! Naši kurátoři se Vám brzy ozvou.', 'success');
+            if($this->lang=='cs') { $this->flashMessage('Děkujeme za vložení nového webu! Naši kurátoři se Vám brzy ozvou.', 'success'); }
+			else { $this->flashMessage('Thank you for your nomination! Our curators will contact you soon.', 'success'); }
 		}
 		$this->redirect('this');
 	}		
@@ -391,7 +405,8 @@ public function processFeedbackWebForm(Form $form) {
 			// vlozime do DB
 			$this->feedback->create($values);
 			
-            $this->flashMessage('Děkujeme za to, že pomáháte vylepšit český webový archiv', 'success');
+           if($this->lang=='cs') { $this->flashMessage('Děkujeme za to, že pomáháte vylepšit český webový archiv', 'success'); }
+		   else { $this->flashMessage('Thank you for your feedback!', 'success'); }
 		}
 		$this->redirect('this');
 	}		
