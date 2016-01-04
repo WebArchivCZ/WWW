@@ -211,7 +211,6 @@ $frontRouter[] = new Route('cs/<action>', array(
 			'vyber-zdroju' => 'sourceSelection',
 			'faq' => 'faq',
 			'pomozte-nam-uchovat-cesky-web' => 'cooperation',
-			'smlouva' => 'contract',
 			'certifikovano' => 'disclaimer'
 		),
     ),
