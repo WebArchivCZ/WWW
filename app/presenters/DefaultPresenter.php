@@ -13,7 +13,7 @@ class DefaultPresenter extends \BasePresenter {
 	public $keyword;
 
 	private $resourcesPerPage = 12;
-	
+
 	private $categories;
 	private $subcategories;
 
@@ -29,53 +29,53 @@ class DefaultPresenter extends \BasePresenter {
     }
 
     public function renderDefault() {
-		
+
 		$this->template->homepageNew = $this->homepageNews->findBy(array('active'=>1))->order('order_num DESC')->limit(1)->fetch();
-		
+
 		$selectedResources = array();
 		foreach($this->selectedResources->findBy(array('active'=>1))->order('order_num DESC')->limit(2) as $key => $value) {
 			$selectedResources[$key] = $value->toArray();
 			$selectedResources[$key]['keywords'] = $this->keywords->findBy(array('id'=>explode(',',$selectedResources[$key]['keywords'])));
 		}
 		$this->template->selectedResources = $selectedResources;
-		
+
 		// informace o velikosti webarchivu
 		$wsPath = APP_DIR . "/templates/util/webarchiveSize.txt";
 		if(file_exists($wsPath)) {
-			$wsFile = fopen($wsPath, "r"); 
+			$wsFile = fopen($wsPath, "r");
 			$this->template->webarchiveSize = fgets($wsFile);
 		}
-		
+
 		$this->template->resourceCount = $this->resources->findBy(array('contract_id IS NOT NULL'))->count();
 		$this->template->lastResources = $this->resources->findBy(array('contract_id IS NOT NULL'))->order('id DESC')->limit(5);
-		
+
     }
-	
+
     public function renderTopicCollections() {
-		
+
 		$this->template->topicCollections = $topicCollections = $this->topicCollections->findBy(array('active'=>1))->order('order_num DESC');
 
 		foreach($this->topicCollections->findAll() as $topicCollection) {
 			$topicCollection->update(array('order_num'=>$topicCollection->id));
 		}
-	}	
+	}
 
     public function renderSearchResults($query) {
-		
+
 		$this->template->display = $this->display;
 
 		// automaticke doplneni predchozi hledaneho vyrazu
 		$this['smallSearchBox']->setDefaults(array('query'=>$query));
-		
+
 		// poprve nacteme a zjistime tak pocet zdroju
 		$results = $this->resources->findWithFulltext($query);
 		//$results = $this->resources->findBy(array('annotation LIKE' => new \Nette\Database\SqlLiteral($pattern),'contract_id IS NOT NULL'));
-		
+
 		// pripravime strankovani
-		$vp = $this['vp']; 
-        $paginator = $vp->paginator;		
-		$paginator->setItemCount(count($results)); 
-		$paginator->setItemsPerPage($this->resourcesPerPage); 
+		$vp = $this['vp'];
+        $paginator = $vp->paginator;
+		$paginator->setItemCount(count($results));
+		$paginator->setItemsPerPage($this->resourcesPerPage);
 
 		// nacteme zdroje se strankovanim
 		$r = $this->resources->findWithFulltext($query)->order('title ASC')->limit($paginator->getLength(), $paginator->getOffset());
@@ -93,9 +93,9 @@ class DefaultPresenter extends \BasePresenter {
 		$this->template->paginator = $paginator;
 	}
 
-	
+
     public function renderKeywordResults($keyword) {
-		
+
 		$this->template->display = $this->display;
 
 		$keyword = $this->keywords->find($keyword);
@@ -110,12 +110,12 @@ class DefaultPresenter extends \BasePresenter {
 				$resourceIds[] = $resource->id;
 			}
 		}
-		
+
 		// pripravime strankovani
-		$vp = $this['vp']; 
-        $paginator = $vp->paginator;		
-		$paginator->setItemCount(count($resourceIds)); 
-		$paginator->setItemsPerPage($this->resourcesPerPage); 
+		$vp = $this['vp'];
+        $paginator = $vp->paginator;
+		$paginator->setItemCount(count($resourceIds));
+		$paginator->setItemsPerPage($this->resourcesPerPage);
 
 		// nacteme zdroje se strankovanim
 		$r = $this->resources->findBy(array('id IN'=>$resourceIds))->order('title ASC')->limit($paginator->getLength(), $paginator->getOffset());
@@ -131,24 +131,24 @@ class DefaultPresenter extends \BasePresenter {
 		$this->template->resources = $resources;
 		$this->template->paginator = $paginator;
 	}
-	
-	
+
+
     public function renderCatalog($category = 0, $subcategory = 0) {
 
 		$this->template->display = $this->display;
-		
+
 		$this->template->currentCategory = $this->categories->find($category);
 		$this->template->currentSubcategory = $this->subcategories->findOneBy(array('id'=>$subcategory));
 		$this->template->resourcesCount = count($this->resources->findBy(array('contract_id IS NOT NULL')));
 		$this->template->categoryResourcesCount = count($this->resources->findBy(array('conspectus_id'=>$category,'contract_id IS NOT NULL')));
-		
+
 		// nacteme kategorie
 		$categories = array();
 		foreach($this->categories->findAll()->order('category ASC') as $key => $value) {
-			$categoryResourceCount = count($this->resources->findBy(array('conspectus_id'=>$key,'contract_id IS NOT NULL'))); 
+			$categoryResourceCount = count($this->resources->findBy(array('conspectus_id'=>$key,'contract_id IS NOT NULL')));
 			if($categoryResourceCount > 0) { // dale pracuju jen s tema, v kterych jsou nejaky zdroje
 				$categories[$key] = $value->toArray();
-				$categories[$key]['count'] = $categoryResourceCount; 
+				$categories[$key]['count'] = $categoryResourceCount;
 			} else {
 				continue;
 			}
@@ -167,7 +167,7 @@ class DefaultPresenter extends \BasePresenter {
 			}
 		}
 		$this->template->subcategories = $subcategories;
-		
+
 		// pripravime strankovani
 		if($category == 0) {
 			$resourceCount = $this->resources->findBy(array('contract_id IS NOT NULL'))->count();
@@ -176,10 +176,10 @@ class DefaultPresenter extends \BasePresenter {
 		} elseif($category > 0 && $subcategory > 0) {
 			$resourceCount = $this->resources->findBy(array('conspectus_subcategory_id'=>$subcategory,'contract_id IS NOT NULL'))->count();
 		}
-        $vp = $this['vp']; 
-        $paginator = $vp->paginator;		
-		$paginator->setItemCount($resourceCount); 
-		$paginator->setItemsPerPage($this->resourcesPerPage); 
+        $vp = $this['vp'];
+        $paginator = $vp->paginator;
+		$paginator->setItemCount($resourceCount);
+		$paginator->setItemsPerPage($this->resourcesPerPage);
 
 		// nacteme zdroje
 		if($category == 0) {
@@ -197,21 +197,21 @@ class DefaultPresenter extends \BasePresenter {
 		}
 		$this->template->resources = $resources;
 		$this->template->paginator = $paginator;
-		
+
 
     }
 
-	
+
 /* UTIL */
 /********/
-	
+
 	public function searchLog($query, $dateFrom = NULL, $dateTill = NULL) {
-		
-		$httpRequest = $this->context->container->getByType('Nette\Http\Request'); 
+
+		$httpRequest = $this->context->container->getByType('Nette\Http\Request');
 
 		if($dateFrom == "") {$dateFrom = NULL;}
 		if($dateTill == "") {$dateTill = NULL;}
-		
+
 		$this->searchLogs->create(array(
 			'query'=>$query,
 			'date_from'=>$dateFrom,
@@ -219,9 +219,9 @@ class DefaultPresenter extends \BasePresenter {
 			'added'=>new \DateTime(),
 			'ip'=>$httpRequest->getRemoteAddress()
 		));
-		
+
 	}
-	
+
 /* KOMPONENTY */
 /**************/
 
@@ -237,8 +237,8 @@ class DefaultPresenter extends \BasePresenter {
 
         return $form;
     }
-	
-	
+
+
     public function createComponentBigSearchBox() {
 
 		$form = new Form;
@@ -246,7 +246,7 @@ class DefaultPresenter extends \BasePresenter {
         $form->addText('query', 'Hledaný výraz:', 32)->setAttribute('autofocus')
 			 ->addRule(Form::FILLED, NULL);
         $form->addSubmit('submit', 'Enter');
-		
+
         $form->onSuccess[] = callback($this, 'processSearchBox');
 
         return $form;
@@ -259,6 +259,7 @@ class DefaultPresenter extends \BasePresenter {
 
 		$form->addText('query', 'URL:*')
 			 ->addRule(Form::FILLED, 'Zadejte prosím platné URL.');
+		$form->addCheckbox('star');
 		$form->addDatePicker('dateFrom', 'Od:', 10, 10)
 			 ->setAttribute('class', 'text');
 		$form->addDatePicker('dateTill', 'Do:', 10, 10)
@@ -268,13 +269,13 @@ class DefaultPresenter extends \BasePresenter {
 		$form->onSuccess[] = callback($this, 'processAdvancedSearchForm');
 
         return $form;
-    }	
-	
+    }
+
     public function createComponentAddWebForm() {
 
 		$form = new Form;
 		$form->addAntispam();
-	
+
 	if($this->lang=='cs') {
 		$form->addText('url', 'URL:*')
 			 ->addRule(Form::FILLED, 'Zadejte prosím platné URL.');
@@ -287,7 +288,7 @@ class DefaultPresenter extends \BasePresenter {
 		$form->addTextArea('note', 'Poznámka:');
 		$form->addSubmit('submit', 'Přidat web');
 	}
-	else { 
+	else {
 		$form->addText('url', 'URL:*')
 			 ->addRule(Form::FILLED, 'Your URL is invalid.');
 		$form->addCheckbox('representative');
@@ -302,7 +303,7 @@ class DefaultPresenter extends \BasePresenter {
 		$form->onSuccess[] = callback($this, 'processAddWebForm');
 
         return $form;
-    }	
+    }
 
      public function createComponentFeedbackWebForm() {
 
@@ -319,7 +320,7 @@ class DefaultPresenter extends \BasePresenter {
         return $form;
     }
 
-	
+
 /* UKLADANI FORMULARE */
 /**********************/
 
@@ -338,7 +339,7 @@ class DefaultPresenter extends \BasePresenter {
 				$this->redirect('searchResults', array('query'=>$values['query']));
 			}
 		}
-    }		
+    }
 
    public function processAdvancedSearchForm(Form $form) {
 
@@ -346,22 +347,30 @@ class DefaultPresenter extends \BasePresenter {
             $values = $form->getValues();
 			$this->searchLog($values['query'], $values['dateFrom'], $values['dateTill']);
 			$url = $values['query'];
-			
+
 			$dateFrom = trim($values['dateFrom'] ? $values['dateFrom']->format('Ymd') : "");
-			$dateTill = trim($values['dateTill'] ? $values['dateTill']->format('Ymd') : "");		
-			
+			$dateTill = trim($values['dateTill'] ? $values['dateTill']->format('Ymd') : "");
+
 			if($dateFrom!="" || $dateTill!="") {
 				$url .= "&exactdate=&startdate=".$dateFrom."&enddate=".$dateTill;
 			}
+
 			// add possible missing http:// protocol
 			$url = parse_url($url, PHP_URL_SCHEME) === null ? 'http://' . $url : $url;
-			$this->redirectUrl("http://wayback.webarchiv.cz/wayback/query?type=urlquery&url=".$url);
+
+			if($values['star']==TRUE) {
+				$this->redirectUrl("http://wayback.webarchiv.cz/wayback/*/". $values['query'] ."*");
+			}
+			else {
+				$this->redirectUrl("http://wayback.webarchiv.cz/wayback/query?type=urlquery&url=".$url);
+			}
+
 		}
-    }		
-	
-	
+    }
+
+
 	public function processAddWebForm(Form $form) {
-		
+
 		if($form->isSubmitted()) {
             $values = $form->getValues();
 			$values['added'] = new \DateTime();
@@ -370,32 +379,32 @@ class DefaultPresenter extends \BasePresenter {
 
 			// vlozime do DB
 			$this->publicNominations->create($values);
-			
+
 			if(\Nette\Diagnostics\Debugger::$productionMode) {
-				
+
 				$cc = ($values['cc'] == 1 ? "ano" : "ne");
 				$representative = ($values['representative'] == 1 ? "ano" : "ne");
-				
+
 	            if($this->sendEmails) {
 					$mail = new Message;
 					$mail->setFrom('Webarchiv.cz  <'.SYSTEM_EMAIL.'>')
 						->addTo(SYSTEM_EMAIL)
 						->setSubject('Nová nominace webu')
-						->setBody("URL: ".$values['url']."\n\nJednatel: ".$representative."\n\nCC: ".$cc."\n\nJméno: ".$values['name']."\n\nE-mail: ".$values['email']."\n\nPoznámka: ".$values['note']);			
+						->setBody("URL: ".$values['url']."\n\nJednatel: ".$representative."\n\nCC: ".$cc."\n\nJméno: ".$values['name']."\n\nE-mail: ".$values['email']."\n\nPoznámka: ".$values['note']);
 					$mailer = new SendmailMailer;
-					$mailer->send($mail);			
+					$mailer->send($mail);
 				}
 			}
             if($this->lang=='cs') { $this->flashMessage('Děkujeme za vložení nového webu! Naši kurátoři se Vám brzy ozvou.', 'success'); }
 			else { $this->flashMessage('Thank you for your nomination! Our curators will contact you soon.', 'success'); }
 		}
 		$this->redirect('this');
-	}		
-    
+	}
+
 
 
 public function processFeedbackWebForm(Form $form) {
-		
+
 		if($form->isSubmitted()) {
             $values = $form->getValues();
 			$values['added'] = new \DateTime();
@@ -404,12 +413,12 @@ public function processFeedbackWebForm(Form $form) {
 
 			// vlozime do DB
 			$this->feedback->create($values);
-			
+
            if($this->lang=='cs') { $this->flashMessage('Děkujeme za to, že pomáháte vylepšit český webový archiv', 'success'); }
 		   else { $this->flashMessage('Thank you for your feedback!', 'success'); }
 		}
 		$this->redirect('this');
-	}		
-    
+	}
+
 
 }
