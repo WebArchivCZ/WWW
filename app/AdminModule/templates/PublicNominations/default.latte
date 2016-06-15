@@ -9,6 +9,7 @@
 		<table class="items">
 			<tr>
 				<th>URL</th>
+				<th>Poznámka</th>
 				<th>Může jednat?</th>
 				<th>Creative Commons</th>
 				<th>Jméno</th>
@@ -18,7 +19,10 @@
 			{foreach $publicNominations as $publicNomination}
 				<tr>
 					<td class="item_row">
-						<span>{$publicNomination->url}</span>
+						<span><a href="{$publicNomination->url}">{$publicNomination->url}</a></span>
+					</td>
+					<td class="item_row">
+						<span>{if $publicNomination->note}<span title="{$publicNomination->note}"><u>Ano</a></span>{else}-{/if}</span>
 					</td>
 					<td class="item_row">
 						<span>{if $publicNomination->representative}Ano{else}-{/if}</span>
