@@ -1,4 +1,4 @@
-{block title}{if $lang == 'cs'}Výsledky vyhledávání{else}Search results{/if} | {include #parent}{/block}
+{block title}{if count($resources) != 1}{if $lang == 'cs'}Výsledky vyhledávání{else}Search results{/if}{else}{$query}{/if} | {include #parent}{/block}
 
 {block menuItemActive1} class="active"{/block}
 
