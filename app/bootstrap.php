@@ -7,7 +7,7 @@ use Nette\Application\Routers\Route,
 	Nette\Application\Routers\RouteList;
 
 // Load Nette Framework (USE phar in procudtion mode)
-//require LIBS_DIR . '/Nette/loader.php'; 
+//require LIBS_DIR . '/Nette/loader.php';
 
 // Settings
 define('DOMAIN_NAME','webarchiv.cz');
@@ -60,10 +60,10 @@ $adminRouter[] = new Route('admin/<presenter>/<action>', array(
 	'action'    => 'default',
 	'id'        => NULL,
 ));
-        
 
 
-        
+
+
 
 // Front Router
 $container->router[] = $frontRouter = new RouteList();
@@ -100,7 +100,7 @@ $frontRouter[] = new Route('<lang en|cs>', array(
 
 /*$frontRouter[] = new Route('cs/klicove-slovo/<keyword>', array(
 	'presenter' => 'Default',
-	'action'	=> 'keywordResults',	
+	'action'	=> 'keywordResults',
 	'lang'		=> 'cs',
 	'keyword' => array(
 		//Route::VALUE => 0,
@@ -115,7 +115,7 @@ $frontRouter[] = new Route('<lang en|cs>', array(
 
 $frontRouter[] = new Route('en/browse[/<category>][/<subcategory>]', array(
 	'presenter' => 'Default',
-	'action'	=> 'catalog',	
+	'action'	=> 'catalog',
 	'lang'		=> 'en',
 	'category' => array(
 		Route::FILTER_IN => function ($slug) use ($container) {
@@ -138,7 +138,7 @@ $frontRouter[] = new Route('en/browse[/<category>][/<subcategory>]', array(
 
 $frontRouter[] = new Route('cs/katalog-stranek[/<category>][/<subcategory>]', array(
 	'presenter' => 'Default',
-	'action'	=> 'catalog',	
+	'action'	=> 'catalog',
 	'lang'		=> 'cs',
 	'category' => array(
 		Route::FILTER_IN => function ($slug) use ($container) {
@@ -158,7 +158,17 @@ $frontRouter[] = new Route('cs/katalog-stranek[/<category>][/<subcategory>]', ar
 	),
 ));
 
+$frontRouter[] = new Route('cs/zdroj[/<query>]', array(
+	'presenter' => 'Default',
+	'action'	=> 'searchResults',
+	'lang'		=> 'cs',
+));
 
+$frontRouter[] = new Route('en/source[/<query>]', array(
+	'presenter' => 'Default',
+	'action'	=> 'searchResults',
+	'lang'		=> 'en',
+));
 
 $frontRouter[] = new Route('en/<action>', array(
 	'lang'      => 'en',
@@ -172,13 +182,13 @@ $frontRouter[] = new Route('en/<action>', array(
             'we-are-webarchiv' => 'moreAbout',
             'advanced-search' => 'advancedSearch',
             'search-results' => 'searchResults',
-			
+
 			'comprehensive-harvests' => 'harvests',
 			'topic-collections' => 'topicCollections',
 			'documents' => 'documents',
 			'graphics' => 'graphics',
 			'contacts' => 'contact',
-			
+
 			'creative-commons' => 'creativeCommons',
 			'selective-harvests' => 'sourceSelection',
 		),
@@ -197,16 +207,16 @@ $frontRouter[] = new Route('cs/<action>', array(
             'zpetna-vazba' => 'feedback',
             'jsme-webarchiv' => 'moreAbout',
             'pokrocile-vyhledavani' => 'advancedSearch',
-            'vysledky-vyhledavani' => 'searchResults',
+        //    'vysledky-vyhledavani' => 'searchResults',
             'klicove-slovo' => 'keywordResults',
-			
+
 			'terminologie' => 'terminology',
 			'celoplosne-sklizne' => 'harvests',
 			'tematicke-sbirky' => 'topicCollections',
 			'dokumenty' => 'documents',
 			'graficke-materialy' => 'graphics',
 			'kontakty' => 'contact',
-			
+
 			'creative-commons' => 'creativeCommons',
 			'vyber-zdroju' => 'sourceSelection',
 			'faq' => 'faq',
@@ -234,6 +244,3 @@ $frontRouter[] = new Route('<lang en|cs>/<presenter>/<action>/<id>', array(
 
 // Configure and run the application!
 $container->application->run();
-
-
-
