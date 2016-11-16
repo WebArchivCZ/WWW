@@ -8,9 +8,10 @@
 	<section id="search">
 		<div class="container">
 
-			{if trim($query)!=""}<h1>{$query}</h1>{/if}
 
 			{if count($resources) > 1}
+
+			{if trim($query)!=""}<h1>{$query}</h1>{/if}
 
 			<a href="{link advancedSearch}">{if $lang == 'cs'}pokročilé vyhledávání{else}advanced search{/if}</a>
 
@@ -58,6 +59,7 @@
 			</section>
 
 	{elseif count($resources) == 1}
+
 		<section id="catalog-items">
 			<div class="container">
 
