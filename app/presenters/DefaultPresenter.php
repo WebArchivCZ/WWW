@@ -389,7 +389,7 @@ class DefaultPresenter extends \BasePresenter {
 					$mail = new Message;
 					$mail->setFrom('Webarchiv.cz  <'.SYSTEM_EMAIL.'>')
 						->addTo(SYSTEM_EMAIL)
-						->setSubject('Nová nominace webu')
+						->setSubject("Nová nominace webu: " .$values['url'])
 						->setBody("URL: ".$values['url']."\n\nJednatel: ".$representative."\n\nCC: ".$cc."\n\nJméno: ".$values['name']."\n\nE-mail: ".$values['email']."\n\nPoznámka: ".$values['note']);
 					$mailer = new SendmailMailer;
 					$mailer->send($mail);
