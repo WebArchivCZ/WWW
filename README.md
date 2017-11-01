@@ -1,4 +1,9 @@
-# WWW českého webového archivu
+# This is the legacy version! 
+Latest version is now part of Seeder, more here: https://github.com/WebarchivCZ/Seeder
+
+
+WWW českého webového archivu
+
 Created in [Nette Framework](http://nette.org)
 
 Repozitář pro webové stránky českého webového archivu.
